@@ -1,6 +1,5 @@
 import sqlite3
 from datetime import datetime, timedelta
-
 def criar_banco():
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
