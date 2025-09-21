@@ -2,9 +2,6 @@ import sqlite3
 from datetime import datetime, timedelta
 
 def criar_banco():
-    """
-    Cria o banco de dados e a tabela de contas, caso não existam.
-    """
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
     cursor.execute("""
@@ -37,7 +34,7 @@ def listar_contas():
 
 def contas_proximas():
     hoje = datetime.now().date()
-    limite = hoje + timedelta(days=3)  # até 3 dias para vencer
+    limite = hoje + timedelta(days=3)  
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM contas WHERE vencimento <= ?", (str(limite),))
